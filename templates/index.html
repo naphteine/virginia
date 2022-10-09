@@ -1,0 +1,63 @@
+{{ template "head" "Virginia"}}
+<body>
+    {{ template "header" "Books" }}
+    <main>
+        <hr>
+
+        <form class="main-form" action="/post/book" method="post">
+            <table class="table table-striped">
+                <tbody>
+                    <tr>
+                        <th scope="row">
+                            <label class="main-form" for="name">Book Name:</label>
+                            <input class="main-form" type="text" id="name" name="name" maxlength="128">
+                        </th>
+
+                        <th scope="row">
+                            <label class="main-form" for="year">Year:</label>
+                            <input class="main-form" type="text" id="year" name="year" maxlength="4">
+                        </th>
+
+                        <th scope="row">
+                            <label class="main-form" for="author">Author Name:</label>
+                            <input list="authors" class="main-form" type="text" id="author" name="author" maxlength="48">
+
+                            <datalist id="authors">
+                            {{ range .Authors }}
+                            <option value="{{ .Name }}">
+                            {{ end }}
+                            </datalist>
+                        </th>
+                        
+                        <th scope="row">
+                            <input class="main-form" type="submit" value="Add book">
+                        </th>
+                    </tr>
+                </tbody>
+            </table>
+        </form>
+
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Author</th>
+                    <th scope="col">Year</th>
+                    <th scope="col">Entry Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{ range .Books }}
+                <tr>
+                    <th scope="row">{{ .ID }}</th>
+                    <td><a href="/book/{{ .ID }}">{{ .Name }}</a></td>
+                    <th scope="row">{{ .AuthorName }}</th>
+                    <th scope="row">{{ .Year }}</th>
+                    <th scope="row">{{ .EntryDate }}</th>
+                </tr>
+                {{ end }}
+            </tbody>
+        </table>
+    </main>
+{{ template "footer" }}

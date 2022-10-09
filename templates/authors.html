@@ -1,0 +1,34 @@
+{{ template "head" "Virginia"}}
+<body>
+    {{ template "header" "Authors" }}
+    <main>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Entry Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{ range . }}
+                <tr>
+                    <th scope="row">{{ .ID }}</th>
+                    <td><a href="/project/{{ .ID }}">{{ .Name }}</a></td>
+                    <th scope="row">{{ .EntryDate }}</th>
+                </tr>
+                {{ end }}
+            </tbody>
+        </table>
+
+        <form class="main-form" action="/post/author" method="post">
+            <p class="main-form">
+                <label class="main-form" for="name">Name:</label>
+                <input class="main-form" type="text" id="name" name="name" maxlength="32"><br>
+            </p>
+            <p class="main-form">
+                <input class="main-form" type="submit" value="Add author">
+            </p>
+        </form>
+    </main>
+{{ template "footer" }}

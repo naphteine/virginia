@@ -1,0 +1,82 @@
+{{define "head"}}<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ . }}</title>
+    <meta charset="utf-8">
+    <meta name=viewport content="width=device-width,initial-scale=1">
+    <meta http-equiv=x-ua-compatible content="ie=edge">
+
+    <link rel="stylesheet" href="/res/bootstrap.min.css" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6">
+
+    <style>
+    body {
+        background-color: #eee;
+        color: #333;
+    }
+
+    blockquote {
+        margin: 0;
+    }
+
+    blockquote p {
+        padding: 15px;
+        background: #eee;
+        border-radius: 5px;
+        text-align: justify;
+    }
+
+    blockquote p::before {
+        content: '\201C';
+    }
+
+    blockquote p::after {
+        content: '\201D';
+    }
+    </style>
+</head>
+{{end}}
+
+{{ define "header" }}
+    <a href="#"><h1>{{ . }}</h1></a>
+    
+    <a href="/">Books</a>
+    <a href="/authors">Authors</a>
+{{end}}
+
+{{define "footer"}}
+    <footer>
+        <figure>
+            <script type="text/javascript">
+                //store the quotations in arrays
+                quotes = [
+                    ["Don’t expect it to be easy, you will have to work at it. Get a few more books from the library that cover beginning programming to go with the ones you have — sometimes a different author explaining the same thing will help a concept click. Go through all of them at least twice. Try to do every problem and exercise, don’t just read them and think you get it. Lots of people that want to program will talk a lot about programming, but not actually write that many programs. You should write hundreds of programs.", "John Carmack", "Email from JC, to d3dvortex"],
+                    ["At the very start, I would say that doing simple projects without following tutorials was the most helpful practice I adopted. A lot of people do projects by following step by step tutorials, but in the end, they don't learn how to actually code because things are too perfect. Apart from that, I also enjoyed just watching people code a project, there is something entertaining in this. Check Pieter Levels coding Hoodmaps on youtube", "u/FullStackHeroes", "Reddit"],
+                    ["Our first computers were born not out of greed or ego, but in the revolutionary spirit of helping common people rise above the most powerful institutions.", "Wozniak", "Somewhere on the pale blue dot"],
+                    ["Being an entrepreneur is like eating glass and staring into the abyss of death.", "Elon Musk", "Somewhere on the pale blue dot"],
+                    ["Remember, your interviewer is looking for something to make you stand out. They want to find someone who is unlikely to embarrass them. Here are the things an interviewer is looking for: It uses a relevant skill, It is complete, It is interesting, It is realistic.", "Anonymous", "Somewhere on the pale blue dot"],
+                    ["Small: Think for a moment: what’s the equivalent of Hello, World! for web apps? What’s the equivalent for Twitter Bots? That’s what you should build first. Deploying something small is much better than never deploying anything. You can always add to it later if you need to.", "Anonymous", "Somewhere on the pale blue dot"],
+                    ["Whimsical: Deploying something that works is better than a failed grand vision that doesn’t do anything.", "Anonymous", "Somewhere on the pale blue dot"],
+                    ["Familiar + 1: Build something you know how to build, with one extra thing you’ve never used. If you are familiar with traditional web apps, build a web app, but in a new language. The familiar is the web app, the +1 is the new language. Or build a web app in a language you know, but with a new database. You don’t want the project to fail because you hit too many roadblocks. Remember, you can always add more stuff later.", "Anonymous", "Somewhere on the pale blue dot"],
+                    ["The points you think you score for writing cunning code do not exist.", "Anonymous", "Somewhere on the pale blue dot"],
+                    ["You should write your code so simple and unsophisticated that you think a child could read it. That way you have more chance of it being correct, and you will be able to debug it.", "Anonymous", "Somewhere on the pale blue dot"],
+                    ["It can never be too simple.", "Anonymous", "Somewhere on the pale blue dot"],
+                    ["You ain't gonna need it = YAGNI.", "Anonymous", "Somewhere on the pale blue dot"],
+                    ["Make small, midget version first. Let it grow with time and ease of mind.", "Me", "Some night of February 2021"]
+                ];
+
+                //calculate a random index number
+                index = Math.floor(Math.random() * quotes.length);
+
+                //display the quotation
+                document.write("<blockquote cite=\"https://www.huxley.net/bnw/four.html\">\n" + "<p>" + quotes[index][0] + "</p>\n</blockquote>\n");
+                document.write("<figcaption>— " + quotes[index][1] + ", <cite>" + quotes[index][2] + "</cite></figcaption>\n");
+                //done
+            </script>
+        </figure>
+    </footer>
+
+
+    <script src="/res/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"></script>
+</body>
+</html>
+{{end}}
